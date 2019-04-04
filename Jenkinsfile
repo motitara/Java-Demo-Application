@@ -31,7 +31,7 @@ node{
     
       // ********* For Azure Cluster**************************
       stage('Deploy'){
-         def k8Apply= "kubectl apply -f /home/ubuntu/deployment.yaml" 
+         def k8Apply= "sudo kubectl apply -f deployment.yaml" 
          withCredentials([string(credentialsId: 'k8pwdmotiram', variable: 'k8PWD')]) {
           sh "sshpass -p ${k8PWD} ssh -o StrictHostKeyChecking=no ubuntu@40.121.132.233" 
           sh "sshpass -p ${k8PWD} scp -r deployment.yaml ubuntu@40.121.132.233:/home/ubuntu" 
