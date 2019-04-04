@@ -28,7 +28,7 @@ node{
         sh "sed -i.bak 's/#JOB-NAME#/$JOB_NAME/' deployment.yaml"
       }
           
-    /*
+    
       // ********* For Azure Cluster**************************
       stage('Deploy'){
          def k8Apply= "kubectl apply -f deployment.yaml" 
@@ -38,7 +38,7 @@ node{
           sh "sshpass -p ${k8PWD} ssh  -o StrictHostKeyChecking=no ubuntu@40.121.132.233 ${k8Apply}"
          }
        }
-      */
+      
          
        
     
